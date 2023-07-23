@@ -24,6 +24,12 @@
     integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
     crossorigin="anonymous"></script>
 
+  <!-- Add jQuery -->
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+  <!-- Add Typed.js -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.11/typed.min.js"></script>
+
   <style>
     .card-header .card-title i {
       margin-right: 10px;
@@ -102,48 +108,127 @@
     .bd-mode-toggle {
       z-index: 1500;
     }
+
+    /* Add margin between the filter buttons */
+    .btn-group .btn {
+      margin-right: 10px;
+      position: relative;
+      padding: 4px 8px;
+      /* Adjust the padding to make the button smaller */
+      font-size: 14px;
+      /* Adjust the font size to make the text smaller */
+      background-color: #f1f1f1;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      color: #333;
+    }
+
+    /* Add a pseudo-element for the connector line before the button */
+    .btn-group .btn::before {
+      content: "";
+      position: absolute;
+      top: 50%;
+      left: -6px;
+      width: 6px;
+      height: 1%;
+      /* Ensure the height covers the full height of the button */
+      background-color: #ccc;
+      transform: translateY(-50%);
+      /* Center the line vertically */
+    }
+
+    /* Style for the first button to remove the left connector line */
+    .btn-group .btn:first-child::before {
+      display: none;
+    }
+
+    /* Add a pseudo-element for the connector line after the button */
+    .btn-group .btn::after {
+      content: "";
+      position: absolute;
+      top: 50%;
+      right: -6px;
+      width: 6px;
+      height: 1%;
+      /* Ensure the height covers the full height of the button */
+      background-color: #ccc;
+      transform: translateY(-50%);
+      /* Center the line vertically */
+    }
+
+    /* Style for the last button to remove the right connector line */
+    .btn-group .btn:last-child::after {
+      display: none;
+    }
+
+    /* Add custom styles for the active button */
+    .btn.active {
+      background-color: #28a745;
+      /* Green color as an example */
+      color: #fff;
+      /* White text color as an example */
+    }
+
+    @keyframes matrixAnimation {
+      0% {
+        transform: translateX(0);
+        opacity: 0;
+      }
+
+      100% {
+        transform: translateX(-10px);
+        opacity: 1;
+      }
+    }
+
+    .matrix-animation {
+      animation: matrixAnimation 1s linear infinite;
+    }
   </style>
 
 </head>
 
 <body>
-  <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
-    <symbol id="check2" viewBox="0 0 16 16">
-      <path
-        d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
-    </symbol>
-    <symbol id="circle-half" viewBox="0 0 16 16">
-      <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
-    </symbol>
-    <symbol id="moon-stars-fill" viewBox="0 0 16 16">
-      <path
-        d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
-      <path
-        d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
-    </symbol>
-    <symbol id="sun-fill" viewBox="0 0 16 16">
-      <path
-        d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
-    </symbol>
-  </svg>
-  <div class="navbar navbar-dark bg-dark shadow-sm">
-    <div class="container">
-      <a href="#" class="navbar-brand d-flex align-items-center">
-        <img src="./BRMS.png" alt="Logo" width="40" height="30" class="me-2">
-        <strong style="margin-left: 10px; font-size: medium;">Information Technology</strong>
-      </a>
+  <header>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+      <symbol id="check2" viewBox="0 0 16 16">
+        <path
+          d="M13.854 3.646a.5.5 0 0 1 0 .708l-7 7a.5.5 0 0 1-.708 0l-3.5-3.5a.5.5 0 1 1 .708-.708L6.5 10.293l6.646-6.647a.5.5 0 0 1 .708 0z" />
+      </symbol>
+      <symbol id="circle-half" viewBox="0 0 16 16">
+        <path d="M8 15A7 7 0 1 0 8 1v14zm0 1A8 8 0 1 1 8 0a8 8 0 0 1 0 16z" />
+      </symbol>
+      <symbol id="moon-stars-fill" viewBox="0 0 16 16">
+        <path
+          d="M6 .278a.768.768 0 0 1 .08.858 7.208 7.208 0 0 0-.878 3.46c0 4.021 3.278 7.277 7.318 7.277.527 0 1.04-.055 1.533-.16a.787.787 0 0 1 .81.316.733.733 0 0 1-.031.893A8.349 8.349 0 0 1 8.344 16C3.734 16 0 12.286 0 7.71 0 4.266 2.114 1.312 5.124.06A.752.752 0 0 1 6 .278z" />
+        <path
+          d="M10.794 3.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387a1.734 1.734 0 0 0-1.097 1.097l-.387 1.162a.217.217 0 0 1-.412 0l-.387-1.162A1.734 1.734 0 0 0 9.31 6.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387a1.734 1.734 0 0 0 1.097-1.097l.387-1.162zM13.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.156 1.156 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.156 1.156 0 0 0-.732-.732l-.774-.258a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732L13.863.1z" />
+      </symbol>
+      <symbol id="sun-fill" viewBox="0 0 16 16">
+        <path
+          d="M8 12a4 4 0 1 0 0-8 4 4 0 0 0 0 8zM8 0a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 0zm0 13a.5.5 0 0 1 .5.5v2a.5.5 0 0 1-1 0v-2A.5.5 0 0 1 8 13zm8-5a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2a.5.5 0 0 1 .5.5zM3 8a.5.5 0 0 1-.5.5h-2a.5.5 0 0 1 0-1h2A.5.5 0 0 1 3 8zm10.657-5.657a.5.5 0 0 1 0 .707l-1.414 1.415a.5.5 0 1 1-.707-.708l1.414-1.414a.5.5 0 0 1 .707 0zm-9.193 9.193a.5.5 0 0 1 0 .707L3.05 13.657a.5.5 0 0 1-.707-.707l1.414-1.414a.5.5 0 0 1 .707 0zm9.193 2.121a.5.5 0 0 1-.707 0l-1.414-1.414a.5.5 0 0 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .707zM4.464 4.465a.5.5 0 0 1-.707 0L2.343 3.05a.5.5 0 1 1 .707-.707l1.414 1.414a.5.5 0 0 1 0 .708z" />
+      </symbol>
+    </svg>
+    <div class="navbar navbar-dark bg-dark shadow-sm">
+      <div class="container">
+        <a href="#" class="navbar-brand d-flex align-items-center">
+          <img src="./BRMS.png" alt="Logo" width="40" height="30" class="me-2">
+          <strong style="margin-left: 10px; font-size: medium;">Information Technology</strong>
+        </a>
+      </div>
     </div>
-  </div>
   </header>
 
-  <section class="jumbotron text-center py-5">
+  <section class="jumbotron text-center py-4">
     <div class="container">
-      <h1 class="display-5 fw-bold">Software Products List</h1>
+      <h1 class="display-5 fw-bold">
+        <span id="typed-text"></span>
+      </h1>
     </div>
   </section>
 
   <!-- Filter Badges -->
-  <div class="container mt-3 mb-5 d-flex justify-content-center">
+  <div class="container mb-5 d-flex justify-content-center">
     <div class="btn-group" role="group" aria-label="Filter by Badge">
       <!-- Dynamically generated filter buttons -->
     </div>
@@ -159,9 +244,14 @@
   <footer class="text-body-secondary py-5">
     <div class="container">
       <p class="float-end mb-1">
-        <a href="#">Back to top</a>
+        <a href="#">
+          <i class="fas fa-arrow-up"></i> Back to top
+        </a>
       </p>
-      <p class="mb-1">Information Technology</p>
+      <p class="mb-1">
+        <i class="fas fa-laptop-code"></i>
+        <span class="matrix-animation" style="margin-left: 10px;">Information Technology</span>
+      </p>
     </div>
   </footer>
 
@@ -305,13 +395,27 @@
     }
   ];
 
+  document.addEventListener("DOMContentLoaded", function () {
+    const textToType = "Software Products List";
+    const typedTextElement = document.getElementById("typed-text");
+
+    const options = {
+      strings: [textToType],
+      typeSpeed: 80, // Kecepatan pengetikan dalam milidetik per karakter
+      backSpeed: 30, // Kecepatan kembali setelah selesai dalam milidetik per karakter
+      loop: true, // Teks akan kembali setelah selesai
+    };
+
+    new Typed(typedTextElement, options);
+  });
+
   function createCard(data) {
     const statusIcon = data.status === "Production" ? "fas fa-square-check text-success" : "fas fa-cog fa-spin text-warning";
 
     let badgesHTML = '';
     if (data.badges && Array.isArray(data.badges)) {
       data.badges.forEach((badge) => {
-        badgesHTML += `<a href="${badge.link}" style="margin-left:5px; text-decoration:none;" class="badge text-bg-warning" target="_blank">${badge.name}</a>`;
+        badgesHTML += `<a href="${badge.link}" style="margin-left:5px; text-decoration:none; font-size:10px;" class="badge text-bg-warning" target="_blank">${badge.name}</a>`;
       });
     }
 
@@ -329,7 +433,7 @@
             <div>
               ${badgesHTML}
             </div>
-            <strong class="text-body-secondary mt-3" style="min-width: 117px;">
+            <strong class="text-body-secondary mt-2" style="min-width: 117px;">
               <i class="${statusIcon} fa-beat"></i> ${data.status}
             </strong>
           </div>
@@ -365,16 +469,32 @@
   // Function to generate filter buttons dynamically
   function generateFilterButtons(uniqueBadges) {
     const filterContainer = document.querySelector(".btn-group");
-    let filterButtonsHTML = '<button type="button" class="btn btn-warning" data-filter="all">All</button>';
+    let filterButtonsHTML = '<button type="button" class="btn btn-success active" data-filter="all">All</button>';
 
     uniqueBadges.forEach(badge => {
-      filterButtonsHTML += `<button type="button" class="btn btn-warning" data-filter="${badge}">${badge}</button>`;
+      filterButtonsHTML += `<button type="button" class="btn btn-success" data-filter="${badge}">${badge}</button>`;
     });
 
     filterContainer.innerHTML = filterButtonsHTML;
+
+    // Add event listeners to the buttons after they are generated
+    const filterButtons = filterContainer.querySelectorAll(".btn");
+    filterButtons.forEach(button => {
+      button.addEventListener("click", function () {
+        // Remove active class from all buttons
+        filterButtons.forEach(btn => {
+          btn.classList.remove("active");
+        });
+
+        // Add active class to the clicked button
+        this.classList.add("active");
+
+        // Call a function to handle the filter process based on the data-filter attribute
+        // filterItems(this.getAttribute("data-filter"));
+      });
+    });
   }
 
-  // Function to implement filtering mechanism based on selected filter
   function applyFilter(filter) {
     const productCards = document.querySelectorAll(".card");
     productCards.forEach(card => {
@@ -385,9 +505,16 @@
           shouldShow = true;
         }
       });
-      card.style.display = shouldShow ? "block" : "none";
+
+      // Get the parent element with class "col"
+      const colParent = card.closest(".col");
+
+      if (colParent) {
+        colParent.style.display = shouldShow ? "block" : "none";
+      }
     });
   }
+
 
   // Function to handle filter button click events
   function handleFilterButtonClick() {
