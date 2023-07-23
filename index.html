@@ -129,8 +129,8 @@
   <div class="navbar navbar-dark bg-dark shadow-sm">
     <div class="container">
       <a href="#" class="navbar-brand d-flex align-items-center">
-        <img src="./BRMS.png" alt="Logo" width="70" height="55" class="me-2">
-        <strong style="margin-left: 10px;">Information Technology</strong>
+        <img src="./BRMS.png" alt="Logo" width="40" height="30" class="me-2">
+        <strong style="margin-left: 10px; font-size: medium;">Information Technology</strong>
       </a>
     </div>
   </div>
@@ -142,7 +142,14 @@
     </div>
   </section>
 
-  <div class="album bg-body-tertiary">
+  <!-- Filter Badges -->
+  <div class="container mt-3 mb-5 d-flex justify-content-center">
+    <div class="btn-group" role="group" aria-label="Filter by Badge">
+      <!-- Dynamically generated filter buttons -->
+    </div>
+  </div>
+
+  <div class="album bg-body-tertiary" style="padding-bottom: 20px;">
     <div class="container">
       <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
       </div>
@@ -164,11 +171,11 @@
     {
       title: "HCM Recruitment System",
       description: "HR Recruitment system for helping process recruitment from candidate to employee and integration system other",
-      link: "https://career.brmapps.com",
       status: "Production",
       icon: "fa-solid fa-user-plus",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://career.brmapps.com" },
+        { name: "GMI", link: "https://career.gorontalominerals.com" },
       ],
     },
     {
@@ -178,7 +185,11 @@
       status: "Production",
       icon: "fa-solid fa-handshake-angle",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://farms.brmapps.com/help/history-ticket" },
+        { name: "GMI", link: "https://farms.gorontalominerals.com/help/history-ticket" },
+        { name: "CPM", link: "https://farms.citrapalu.net/help/history-ticket" },
+        { name: "SHS", link: "https://farms.brmapps.com/help/history-ticket" },
+        { name: "LMR", link: "https://farms.gorontalominerals.com/help/history-ticket" },
       ],
     },
     {
@@ -188,91 +199,95 @@
       status: "Production",
       icon: "fa-solid fa-calendar-days",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://farms.brmapps.com/ts/history" },
+        { name: "LMR", link: "https://farms.brmapps.com/ts/history" },
+        { name: "SHS", link: "https://farms.brmapps.com/ts/history" },
       ],
     },
     {
       title: "Travel Authority",
       description: "Travel Authority digital are a substitute for manual travel authority form",
-      link: "https://career.brmapps.com",
       status: "Production",
       icon: "fa-solid fa-plane",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
       ],
     },
     {
       title: "IT Service Request",
       description: "IT Service Request digital are a substitute for manual service request form",
-      link: "https://career.brmapps.com",
       icon: "fa-solid fa-laptop",
       status: "Production",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://farms.brmapps.com/sr/history" },
       ],
     },
     {
       title: "IT Asset Management",
-      description: "IT Asset Management",
-      link: "https://career.brmapps.com",
+      description: "IT Asset Management will integrate to IT Service Request. for help management IT Asset such laptop, PC, etc",
       status: "Development",
-      icon : "fa-solid fa-boxes-stacked",
+      icon: "fa-solid fa-boxes-stacked",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
       ],
     },
     {
       title: "Approval System",
-      description: "Approval system is an to replace wet signatures",
-      link: "https://career.brmapps.com",
+      description: "Approval system is replace wet signatures and can use for itegrate other system via API",
       icon: "fa-solid fa-user-check",
       status: "Production",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://farms.brmapps.com" },
+        { name: "LMR", link: "https://farms.brmapps.com" },
+        { name: "SHS", link: "https://farms.brmapps.com" },
       ],
     },
     {
       title: "Billing Telkomsel",
       description: "Billing Telkomsel are a help calculation total payment based on unit & approval",
-      link: "https://career.brmapps.com",
-      icon : "fa-solid fa-file-invoice-dollar",
+      icon: "fa-solid fa-file-invoice-dollar",
       status: "Production",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://farms-admin.brmapps.com/billing-telkomsel" },
+        { name: "CPM", link: "https://farms-admin.brmapps.com/billing-telkomsel" },
+        { name: "GMI", link: "https://farms-admin.brmapps.com/billing-telkomsel" },
+        { name: "LMR", link: "https://farms-admin.brmapps.com/billing-telkomsel" },
+        { name: "SHS", link: "https://farms-admin.brmapps.com/billing-telkomsel" },
       ],
     },
     {
       title: "FARMS Admin",
       description: "This application FARMS for functions to organize all activities",
-      link: "https://career.brmapps.com",
       status: "Production",
       icon: "fa-solid fa-user-lock",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://farms-admin.brmapps.com" },
+        { name: "LMR", link: "https://farms-admin.brmapps.com" },
+        { name: "SHS", link: "https://farms-admin.brmapps.com" },
       ],
     },
     {
       title: "FARMS Mobile",
-      description: "FARMS Mobile Application is clientside for FARMS Backend services.",
-      link: "https://play.google.com/store/apps/details?id=com.farmsmobile&hl=en_GB",
+      description: "FARMS Mobile Application is clientside version mobile app",
       status: "Production",
       icon: "fa-solid fa-mobile-screen-button",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://play.google.com/store/apps/details?id=com.farmsmobile&hl=en_GB" },
+        { name: "CPM", link: "https://play.google.com/store/apps/details?id=com.citrapalu.farms&hl=en_GB" },
       ],
     },
     {
       title: "Notification Services",
-      description: "Notification Services is service for send whatsapp and email",
+      description: "Notification Services is service for send whatsapp and email can integrate other system via API",
       status: "Production",
       icon: "fa-solid fa-bell",
       badges: [
-        { name: "BRM", link: "https://badge-link1.example" },
+        { name: "BRM", link: "https://farms.brmapps.com" },
+        { name: "LMR", link: "https://farms.brmapps.com" },
+        { name: "SHS", link: "https://farms.brmapps.com" },
       ],
     },
     {
       title: "Epicor Integration",
-      description: "Integration EPICOR via Restfull API",
+      description: "Integration EPICOR via Restfull API for approval and get reports data to other system via local network",
       status: "Development",
       icon: "fa-solid fa-building"
     },
@@ -296,7 +311,7 @@
     let badgesHTML = '';
     if (data.badges && Array.isArray(data.badges)) {
       data.badges.forEach((badge) => {
-        badgesHTML += `<a href="${badge.link}" class="badge text-bg-warning">${badge.name}</a>`;
+        badgesHTML += `<a href="${badge.link}" style="margin-left:5px; text-decoration:none;" class="badge text-bg-warning" target="_blank">${badge.name}</a>`;
       });
     }
 
@@ -309,12 +324,12 @@
           </h5>
         </div>
         <div class="card-body">
-          <p class="card-text">${data.description}</p>
+          <p class="card-text" style="font-size:13px;">${data.description}</p>
           <div class="d-flex justify-content-between align-items-center">
             <div>
               ${badgesHTML}
             </div>
-            <strong class="text-body-secondary mt-3">
+            <strong class="text-body-secondary mt-3" style="min-width: 117px;">
               <i class="${statusIcon} fa-beat"></i> ${data.status}
             </strong>
           </div>
@@ -333,6 +348,62 @@
     });
     container.innerHTML = cardHtml;
   }
+
+  // Function to extract unique badge names from the JSON data
+  function extractUniqueBadges(jsonData) {
+    const uniqueBadges = new Set();
+    jsonData.forEach(data => {
+      if (data.badges && Array.isArray(data.badges)) {
+        data.badges.forEach(badge => {
+          uniqueBadges.add(badge.name);
+        });
+      }
+    });
+    return Array.from(uniqueBadges);
+  }
+
+  // Function to generate filter buttons dynamically
+  function generateFilterButtons(uniqueBadges) {
+    const filterContainer = document.querySelector(".btn-group");
+    let filterButtonsHTML = '<button type="button" class="btn btn-warning" data-filter="all">All</button>';
+
+    uniqueBadges.forEach(badge => {
+      filterButtonsHTML += `<button type="button" class="btn btn-warning" data-filter="${badge}">${badge}</button>`;
+    });
+
+    filterContainer.innerHTML = filterButtonsHTML;
+  }
+
+  // Function to implement filtering mechanism based on selected filter
+  function applyFilter(filter) {
+    const productCards = document.querySelectorAll(".card");
+    productCards.forEach(card => {
+      const badges = card.querySelectorAll(".badge");
+      let shouldShow = filter === "all";
+      badges.forEach(badge => {
+        if (badge.innerText.trim() === filter) {
+          shouldShow = true;
+        }
+      });
+      card.style.display = shouldShow ? "block" : "none";
+    });
+  }
+
+  // Function to handle filter button click events
+  function handleFilterButtonClick() {
+    const filterButtons = document.querySelectorAll(".btn-group button");
+    filterButtons.forEach(button => {
+      button.addEventListener("click", () => {
+        const filter = button.getAttribute("data-filter");
+        applyFilter(filter);
+      });
+    });
+  }
+
+  // Call the necessary functions to set up the filters and filter functionality
+  const uniqueBadges = extractUniqueBadges(jsonData);
+  generateFilterButtons(uniqueBadges);
+  handleFilterButtonClick();
 
   // Panggil fungsi untuk menampilkan data JSON dalam bentuk elemen-elemen HTML
   renderCards(jsonData);
