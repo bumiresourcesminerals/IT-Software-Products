@@ -7,7 +7,7 @@
   <meta name="description" content="">
   <meta name="author" content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
   <meta name="generator" content="Hugo 0.112.5">
-  <title>IT Software Products</title>
+  <title>BRMS & Group Software Products</title>
 
   <link rel="icon" href="./BRMS.png" type="image/png">
 
@@ -169,21 +169,6 @@
       /* White text color as an example */
     }
 
-    @keyframes matrixAnimation {
-      0% {
-        transform: translateX(0);
-        opacity: 0;
-      }
-
-      100% {
-        transform: translateX(-10px);
-        opacity: 1;
-      }
-    }
-
-    .matrix-animation {
-      animation: matrixAnimation 1s linear infinite;
-    }
   </style>
 
 </head>
@@ -253,7 +238,7 @@
       </p>
       <p class="mb-1">
         <i class="fas fa-laptop-code"></i>
-        <span class="matrix-animation" style="margin-left: 10px;">Information Technology</span>
+        <span style="margin-left: 10px;">Information Technology</span>
       </p>
     </div>
   </footer>
@@ -317,7 +302,7 @@
     {
       title: "IT Asset Management",
       description: "IT Asset Management will integrate to IT Service Request. for help management IT Asset such laptop, PC, etc",
-      status: "Development",
+      status: "Production",
       icon: "fa-solid fa-boxes-stacked",
       badges: [
       ],
@@ -405,14 +390,13 @@
     const options = {
       strings: [textToType],
       typeSpeed: 70,
-      backSpeed: 30,
       loop: false,
       onComplete: function (self) {
         // Set a delay of 10 seconds before restarting the typing
         setTimeout(function () {
           self.reset(); // Reset the Typed instance
           self.start(); // Start typing again
-        }, 8000);
+        }, 10000);
       },
     };
 
