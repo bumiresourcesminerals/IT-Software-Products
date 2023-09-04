@@ -169,6 +169,17 @@
       /* White text color as an example */
     }
 
+    /* Untuk scrollbar thumb (grip) */
+    ::-webkit-scrollbar-thumb {
+      background: rgba(0, 0, 0, 0);
+      /* Mengatur opacity scrollbar thumb menjadi 0 */
+    }
+
+    /* Untuk scrollbar (track) */
+    ::-webkit-scrollbar {
+      width: 0px;
+      /* Atur lebar scrollbar sesuai kebutuhan Anda */
+    }
   </style>
 
 </head>
@@ -209,7 +220,7 @@
 
   <section class="jumbotron text-center py-4">
     <div class="container">
-      <h1 class="display-5 fw-bold">
+      <h1 class="display-6 fw-bold">
         <span id="typed-text"></span>
       </h1>
     </div>
@@ -297,7 +308,7 @@
       status: "Production",
       badges: [
         { name: "BRM", link: "https://farms.brmapps.com/sr/history" },
-        { name: "GMI", link : "https://farms.brmapps.com/sr/create"},
+        { name: "GMI", link: "https://farms.brmapps.com/sr/create" },
         { name: "LMR", link: "https://farms.brmapps.com/ts/history" },
         { name: "SHS", link: "https://farms.brmapps.com/ts/history" },
       ],
